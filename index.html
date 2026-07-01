@@ -30,7 +30,7 @@
                         mdSecondaryContainer: '#FAD2CF', // Light Red Container
                         mdOnSecondaryContainer: '#3B0804',
                         
-                        mdBackground: '#F8F9FA',    // Neutral Light Background (Material Surface)
+                        mdBackground: '#F0F4F9',    // Material 3 Surface Container Low
                         mdSurface: '#FFFFFF',       // Card Surface
                         mdSurfaceVariant: '#E1E2EC', // Outer container borders
                         mdOnSurface: '#1F1F1F',     // Core Dark Grey text
@@ -48,11 +48,7 @@
     </script>
     <style>
         body {
-            background-color: #F0F4F9; /* Material 3 Surface Container Low */
-        }
-        /* Custom smooth transition for MD3 tabs */
-        .tab-indicator {
-            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+            background-color: #F0F4F9;
         }
     </style>
 </head>
@@ -84,18 +80,18 @@
                     
                     <!-- MD3 Segmented / Sliding Tab Controller -->
                     <div class="bg-[#E9EEF6] p-1.5 rounded-full flex items-center relative w-full sm:w-auto">
-                        <button onclick="switchTab('minor')" id="tab-btn-minor" class="flex-1 sm:flex-initial py-2 px-5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center space-x-2 bg-mdPrimary text-white shadow-md3-1">
+                        <button onclick="switchTab('minor')" id="tab-btn-minor" class="flex-1 sm:flex-initial py-2.5 px-5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center space-x-2 bg-mdPrimary text-white shadow-md3-1">
                             <i data-lucide="file-edit" class="w-4 h-4"></i>
                             <span>Minor Project (15M)</span>
                         </button>
-                        <button onclick="switchTab('major')" id="tab-btn-major" class="flex-1 sm:flex-initial py-2 px-5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center space-x-2 text-mdOnSurfaceVariant hover:bg-[#D3E3FD]/50">
+                        <button onclick="switchTab('major')" id="tab-btn-major" class="flex-1 sm:flex-initial py-2.5 px-5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center space-x-2 text-mdOnSurfaceVariant hover:bg-[#D3E3FD]/50">
                             <i data-lucide="rocket" class="w-4 h-4 text-mdSecondary"></i>
                             <span>Major Project (20M)</span>
                         </button>
                     </div>
 
-                    <!-- NEW: Prominent Submit Button brought near Header -->
-                    <a href="https://forms.gle/HEARuai8QR7AovJc6" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-mdSecondary hover:bg-red-600 text-white shadow-md3-1 hover:shadow-md3-2 transition-all">
+                    <!-- Prominent Submit Button near Header -->
+                    <a href="https://forms.gle/HEARuai8QR7AovJc6" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-mdSecondary hover:bg-red-600 text-white shadow-md3-1 hover:shadow-md3-2 transition-all">
                         <i data-lucide="upload-cloud" class="w-4 h-4"></i>
                         <span>Submit Minor Project</span>
                     </a>
@@ -106,10 +102,10 @@
     </header>
 
     <!-- Main Content Wrapper -->
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
         
         <!-- Hero Card (Material Design 3 Banner) -->
-        <div class="bg-mdPrimaryContainer text-mdOnPrimaryContainer rounded-[32px] p-6 sm:p-10 shadow-md3-1 mb-10 relative overflow-hidden border border-white/20">
+        <div id="hero-banner" class="bg-mdPrimaryContainer text-mdOnPrimaryContainer rounded-[32px] p-6 sm:p-10 shadow-md3-1 mb-10 relative overflow-hidden border border-white/20 transition-all duration-300">
             <!-- Background Accent Circles -->
             <div class="absolute -right-20 -top-20 w-80 h-80 bg-mdPrimary/5 rounded-full pointer-events-none"></div>
             <div class="absolute -right-10 -bottom-20 w-64 h-64 bg-mdSecondary/5 rounded-full pointer-events-none"></div>
@@ -117,39 +113,41 @@
             <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 relative z-10">
                 <!-- Left side Content -->
                 <div class="max-w-2xl">
-                    <div class="flex flex-wrap gap-2.5 mb-4">
-                        <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-[#FFFFFF]/80 text-mdPrimary shadow-sm">
+                    <div class="flex flex-wrap gap-3 mb-5">
+                        <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold bg-[#FFFFFF] text-mdPrimary shadow-sm">
                             <i data-lucide="sparkles" class="w-3.5 h-3.5 text-mdTertiary fill-mdTertiary"></i>
                             Brighton Lab Space
                         </span>
-                        <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-black bg-mdSecondary text-white shadow-sm animate-pulse">
-                            <i data-lucide="alarm-clock" class="w-3.5 h-3.5"></i>
-                            Deadline: 4th September 2026
+                        
+                        <!-- HIGHLY HIGHLIGHTED & LARGER: Dynamic Active Deadline Badge -->
+                        <span id="hero-deadline-badge" class="inline-flex items-center gap-2.5 px-6 py-2 rounded-2xl text-sm sm:text-base font-black bg-mdSecondary text-white shadow-md3-2 border border-white/40 animate-pulse">
+                            <i data-lucide="alarm-clock" class="w-4 h-4 text-white"></i>
+                            <span id="badge-deadline-text">Minor Deadline: 4th Sept 2026</span>
                         </span>
                     </div>
                     
-                    <h2 class="font-display text-2xl sm:text-4xl font-extrabold tracking-tight text-[#041E49] mb-4 leading-tight">
-                        Welcome, <span class="text-mdPrimary">Young Creators!</span> 🚀
+                    <h2 class="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-[#041E49] mb-4 leading-tight">
+                        Welcome, <span id="hero-title" class="text-mdPrimary">Young Creators!</span> 🚀
                     </h2>
-                    <p class="text-sm sm:text-base text-mdOnSurfaceVariant font-medium leading-relaxed">
+                    <p id="hero-description" class="text-sm sm:text-base text-mdOnSurfaceVariant font-medium leading-relaxed">
                         Welcome to your official school ATL Tinkering Lab repository portal! Explore guidelines, track milestones, and submit your entries. We are looking forward to seeing your amazing inventions come to life!
                     </p>
                 </div>
 
                 <!-- Right side Countdown Controller -->
-                <div class="bg-white rounded-3xl p-5 shadow-md3-2 border border-[#E1E2EC] min-w-[280px] lg:min-w-[320px]">
-                    <span class="text-[11px] font-bold text-mdPrimary uppercase tracking-widest block mb-3 text-center">
+                <div class="bg-white rounded-3xl p-6 shadow-md3-2 border border-[#E1E2EC] min-w-[280px] lg:min-w-[320px]">
+                    <span id="countdown-title" class="text-xs font-bold text-mdPrimary uppercase tracking-widest block mb-4 text-center">
                         ⏳ Minor Submission Countdown
                     </span>
-                    <div class="grid grid-cols-4 gap-2 text-center">
+                    <div class="grid grid-cols-4 gap-2.5 text-center">
                         <!-- Days -->
-                        <div class="bg-mdBackground rounded-2xl p-2.5 border border-slate-100">
-                            <span id="days" class="block text-xl sm:text-2xl font-black text-mdPrimary">00</span>
-                            <span class="block text-[8px] uppercase tracking-wider font-bold text-[#44474F] mt-0.5">Days</span>
+                        <div class="bg-mdBackground rounded-2xl p-3 border border-slate-100">
+                            <span id="days" class="block text-2xl font-black text-mdPrimary">00</span>
+                            <span class="block text-[8px] uppercase tracking-wider font-bold text-[#44474F] mt-1">Days</span>
                         </div>
                         <!-- Hours -->
                         <div class="bg-mdBackground rounded-2xl p-2.5 border border-slate-100">
-                            <span id="hours" class="block text-xl sm:text-2xl font-black text-mdPrimary">00</span>
+                            <span id="hours" class="block text-2xl font-black text-mdPrimary">00</span>
                             <span class="block text-[8px] uppercase tracking-wider font-bold text-[#44474F] mt-0.5">Hours</span>
                         </div>
                         <!-- Minutes -->
@@ -173,151 +171,133 @@
             <!-- TAB CONTENT: MINOR PROJECTS -->
             <div id="content-minor" class="space-y-8 transition-all duration-300 opacity-100 transform translate-y-0">
                 
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Main Overview Card -->
+                <div class="bg-white rounded-[32px] p-6 sm:p-8 shadow-md3-1 border border-slate-100">
+                    <div class="flex items-center space-x-2 text-mdPrimary mb-4">
+                        <i data-lucide="book-open" class="w-5 h-5"></i>
+                        <span class="text-xs uppercase tracking-wider font-extrabold">Part 1: Pitch & Plan</span>
+                    </div>
                     
-                    <!-- Left: Guidelines Card -->
-                    <div class="lg:col-span-7 bg-white rounded-[32px] p-6 sm:p-8 shadow-md3-1 border border-slate-100 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center space-x-2 text-mdPrimary mb-4">
-                                <i data-lucide="book-open" class="w-5 h-5"></i>
-                                <span class="text-xs uppercase tracking-wider font-extrabold">Part 1: Pitch & Plan</span>
-                            </div>
-                            
-                            <h3 class="font-display text-xl sm:text-2xl font-extrabold text-mdOnSurface mb-3">
-                                Minor Projects <span class="text-mdPrimary font-semibold">(15 Marks)</span>
-                            </h3>
-                            
-                            <p class="text-sm text-mdOnSurfaceVariant leading-relaxed mb-6 font-medium">
-                                Minor projects are exciting brainstorming tasks! You only need to pitch a super cool science or robotics idea. 
-                                <span class="block mt-2.5 p-3 rounded-2xl bg-[#D3E3FD]/50 border-l-4 border-mdPrimary text-xs text-mdOnPrimaryContainer font-bold">
-                                    🎉 No physical hardware building is needed yet! It is strictly a SOFTCOPY (PPT/PDF/DOCX) submission.
-                                </span>
-                            </p>
+                    <h3 class="font-display text-xl sm:text-3xl font-extrabold text-mdOnSurface mb-4">
+                        Minor Projects <span class="text-mdPrimary font-semibold">(15 Marks Total)</span>
+                    </h3>
+                    
+                    <p class="text-base text-mdOnSurfaceVariant leading-relaxed mb-6 font-medium">
+                        Minor projects are exciting brainstorming tasks! You only need to pitch a super cool science or robotics idea. 
+                        <span class="block mt-4 p-4 rounded-2xl bg-[#D3E3FD]/50 border-l-4 border-mdPrimary text-sm text-mdOnPrimaryContainer font-bold leading-relaxed">
+                            🎉 No physical hardware building is needed yet! It is strictly a SOFTCOPY (PPT/PDF/DOCX) submission. You will design, plan, and detail your concept on slides.
+                        </span>
+                    </p>
 
-                            <!-- Submission Steps -->
-                            <div class="bg-mdBackground rounded-2xl p-5 border border-[#E1E2EC] mb-2">
-                                <h4 class="text-xs uppercase tracking-widest font-black text-mdPrimary mb-4 flex items-center gap-2">
-                                    <span class="w-2 h-2 rounded-full bg-mdSecondary inline-block"></span> Submission Guide:
-                                </h4>
-                                <ul class="space-y-3.5 text-xs text-mdOnSurfaceVariant font-medium">
-                                    <li class="flex items-start gap-3">
-                                        <div class="bg-mdPrimary text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">1</div>
-                                        <span>Build your idea file using <strong class="text-mdOnSurface">PowerPoint (.PPT)</strong>, <strong class="text-mdOnSurface">PDF</strong>, or <strong class="text-mdOnSurface">Word (.DOCX)</strong> formats.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <div class="bg-mdPrimary text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">2</div>
-                                        <span>Fill up the easy submission Google Form linked directly in the header menu.</span>
-                                    </li>
-                                    <li class="flex items-start gap-3">
-                                        <div class="bg-mdPrimary text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">3</div>
-                                        <span>Upload your file directly inside the form <strong class="text-mdOnSurface">OR</strong> hand over a digital copy to your Robotics Teacher.</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                    <!-- Submission Steps -->
+                    <div class="bg-mdBackground rounded-2xl p-6 border border-[#E1E2EC] mb-6">
+                        <h4 class="text-sm uppercase tracking-widest font-black text-mdPrimary mb-4 flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-mdSecondary inline-block"></span> Step-by-Step Submission Guide:
+                        </h4>
+                        <ul class="space-y-4 text-sm sm:text-base text-mdOnSurfaceVariant font-medium">
+                            <li class="flex items-start gap-3">
+                                <div class="bg-mdPrimary text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">1</div>
+                                <span>Build your idea file using <strong class="text-mdOnSurface">PowerPoint (.PPT)</strong>, <strong class="text-mdOnSurface">PDF</strong>, or <strong class="text-mdOnSurface">Word (.DOCX)</strong> formats.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="bg-mdPrimary text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">2</div>
+                                <span>Fill up the easy submission Google Form linked directly in the header menu.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="bg-mdPrimary text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">3</div>
+                                <span>Upload your file directly inside the form <strong class="text-mdOnSurface">OR</strong> hand over a digital copy to your respected Robotics Teacher.</span>
+                            </li>
+                        </ul>
+                    </div>
 
-                        <!-- Score Card (Rubric) -->
-                        <div class="border-t border-[#E1E2EC] pt-6">
-                            <h4 class="text-xs uppercase tracking-wider font-bold text-mdOnSurfaceVariant mb-4 flex items-center gap-1.5">
-                                <i data-lucide="award" class="w-4 h-4 text-mdPrimary"></i>
-                                <span>🎒 Score Card Weightage</span>
-                            </h4>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-                                <div class="bg-mdBackground p-3 rounded-2xl border border-slate-100">
-                                    <span class="block text-lg font-black text-mdPrimary">3M</span>
-                                    <span class="text-[9px] text-[#44474F] uppercase font-bold tracking-tight">Idea Concept</span>
-                                </div>
-                                <div class="bg-mdBackground p-3 rounded-2xl border border-slate-100">
-                                    <span class="block text-lg font-black text-mdPrimary">6M</span>
-                                    <span class="text-[9px] text-[#44474F] uppercase font-bold tracking-tight">Circuit Flow</span>
-                                </div>
-                                <div class="bg-mdBackground p-3 rounded-2xl border border-slate-100">
-                                    <span class="block text-lg font-black text-mdPrimary">3M</span>
-                                    <span class="text-[9px] text-[#44474F] uppercase font-bold tracking-tight">Teacher Viva</span>
-                                </div>
-                                <div class="bg-mdBackground p-3 rounded-2xl border border-slate-100">
-                                    <span class="block text-lg font-black text-mdPrimary">3M</span>
-                                    <span class="text-[9px] text-[#44474F] uppercase font-bold tracking-tight">File Quality</span>
-                                </div>
+                    <!-- Score Card (Rubric) -->
+                    <div class="border-t border-[#E1E2EC] pt-6">
+                        <h4 class="text-sm uppercase tracking-wider font-bold text-mdOnSurfaceVariant mb-4 flex items-center gap-1.5">
+                            <i data-lucide="award" class="w-4 h-4 text-mdPrimary"></i>
+                            <span>🎒 Score Card Weightage</span>
+                        </h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                            <div class="bg-mdBackground p-4 rounded-2xl border border-slate-100">
+                                <span class="block text-2xl font-black text-mdPrimary">3M</span>
+                                <span class="text-xs text-[#44474F] uppercase font-bold tracking-tight mt-1 block">Idea Concept</span>
+                            </div>
+                            <div class="bg-mdBackground p-4 rounded-2xl border border-slate-100">
+                                <span class="block text-2xl font-black text-mdPrimary">6M</span>
+                                <span class="text-xs text-[#44474F] uppercase font-bold tracking-tight mt-1 block">Circuit Flow</span>
+                            </div>
+                            <div class="bg-mdBackground p-4 rounded-2xl border border-slate-100">
+                                <span class="block text-2xl font-black text-mdPrimary">3M</span>
+                                <span class="text-xs text-[#44474F] uppercase font-bold tracking-tight mt-1 block">Teacher Viva</span>
+                            </div>
+                            <div class="bg-mdBackground p-4 rounded-2xl border border-slate-100">
+                                <span class="block text-2xl font-black text-mdPrimary">3M</span>
+                                <span class="text-xs text-[#44474F] uppercase font-bold tracking-tight mt-1 block">File Quality</span>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Right: Slide blueprint, Template Download & Interactive Form Call -->
-                    <div class="lg:col-span-5 flex flex-col gap-6">
-                        
-                        <!-- Idea File Blueprint Card -->
-                        <div class="bg-white rounded-[32px] p-6 shadow-md3-1 border border-slate-100 flex-1 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center justify-between mb-4 pb-2 border-b border-[#E1E2EC]">
-                                    <h3 class="text-xs font-bold uppercase text-mdOnSurfaceVariant tracking-wider flex items-center gap-1.5">
-                                        <i data-lucide="layers" class="w-4 h-4 text-mdPrimary"></i>
-                                        <span>Slide Blueprint</span>
-                                    </h3>
-                                    <span class="text-[9px] bg-red-500 text-white font-extrabold px-2 py-0.5 rounded-full border border-red-600">MANDATORY</span>
-                                </div>
-                                <p class="text-[11px] text-[#44474F] mb-4 font-semibold">Ensure your softcopy (PPT / PDF / DOCX) contains these specific parameters:</p>
-
-                                <ul class="space-y-2.5 text-xs font-semibold">
-                                    <li class="flex items-center gap-3 bg-mdBackground p-2.5 rounded-xl border border-slate-100">
-                                        <span class="w-6 h-6 rounded-lg bg-mdPrimaryContainer text-mdOnPrimaryContainer font-black text-[10px] flex items-center justify-center">01</span>
-                                        <span class="text-mdOnSurface">Project Name 🏷️</span>
-                                    </li>
-                                    <li class="flex items-center gap-3 bg-mdBackground p-2.5 rounded-xl border border-slate-100">
-                                        <span class="w-6 h-6 rounded-lg bg-mdPrimaryContainer text-mdOnPrimaryContainer font-black text-[10px] flex items-center justify-center">02</span>
-                                        <span class="text-mdOnSurface">Problem Statement ❓</span>
-                                    </li>
-                                    <li class="flex items-center gap-3 bg-mdBackground p-2.5 rounded-xl border border-slate-100">
-                                        <span class="w-6 h-6 rounded-lg bg-mdPrimaryContainer text-mdOnPrimaryContainer font-black text-[10px] flex items-center justify-center">03</span>
-                                        <span class="text-mdOnSurface">Solution & Working 💡</span>
-                                    </li>
-                                    <li class="flex items-center gap-3 bg-mdBackground p-2.5 rounded-xl border border-slate-100">
-                                        <span class="w-6 h-6 rounded-lg bg-mdPrimaryContainer text-mdOnPrimaryContainer font-black text-[10px] flex items-center justify-center">04</span>
-                                        <span class="text-mdOnSurface">Required Items & Costing 🛠️</span>
-                                    </li>
-                                    <li class="flex items-center gap-3 bg-mdBackground p-2.5 rounded-xl border border-slate-100">
-                                        <span class="w-6 h-6 rounded-lg bg-mdPrimaryContainer text-mdOnPrimaryContainer font-black text-[10px] flex items-center justify-center">05</span>
-                                        <span class="text-mdOnSurface">Team details with Class & Section 👥</span>
-                                    </li>
-                                </ul>
+                <!-- Balanced Columns: Blueprint & Template Download (Highly Readable) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                    
+                    <!-- Slide blueprint Card -->
+                    <div class="bg-white rounded-[32px] p-6 sm:p-8 shadow-md3-1 border border-slate-100 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4 pb-3 border-b border-[#E1E2EC]">
+                                <h3 class="text-sm font-bold uppercase text-mdOnSurfaceVariant tracking-wider flex items-center gap-1.5">
+                                    <i data-lucide="layers" class="w-4 h-4 text-mdPrimary"></i>
+                                    <span>Slide Blueprint Requirements</span>
+                                </h3>
+                                <span class="text-[10px] bg-red-500 text-white font-extrabold px-3 py-1 rounded-full border border-red-600 uppercase">Mandatory</span>
                             </div>
-                        </div>
+                            <p class="text-sm text-mdOnSurfaceVariant mb-4 font-semibold">Your softcopy slides must clearly include these five parameters:</p>
 
-                        <!-- NEW: Download Template Card -->
-                        <div class="bg-white rounded-[32px] p-6 shadow-md3-1 border-2 border-dashed border-[#D3E3FD] flex flex-col justify-between hover:shadow-md3-2 hover:border-mdPrimary transition-all duration-300">
-                            <div class="mb-4">
-                                <div class="flex items-center justify-between mb-3">
-                                    <h4 class="font-display font-extrabold text-xs uppercase tracking-wider text-[#041E49] flex items-center gap-1.5">
-                                        <i data-lucide="file-down" class="w-4.5 h-4.5 text-mdPrimary"></i>
-                                        <span>Download Slide Template</span>
-                                    </h4>
-                                    <span class="text-[9px] bg-mdPrimary/10 text-mdPrimary font-extrabold px-2.5 py-0.5 rounded-full">PPTX</span>
-                                </div>
-                                <p class="text-xs text-[#44474F] leading-relaxed font-semibold">
-                                    Use our pre-designed PowerPoint template to structure your project proposal quickly. Open it, type your answers, and save!
-                                </p>
-                            </div>
-                            <a href="https://ik.imagekit.io/brightonRobotics/Minor%20Project%20Template.pptx" target="_blank" class="bg-mdPrimaryContainer hover:bg-[#B9D3FC] text-mdOnPrimaryContainer rounded-full py-3 text-center text-xs font-black uppercase tracking-wider block transition-all flex items-center justify-center gap-2">
-                                <i data-lucide="download" class="w-4 h-4"></i>
-                                <span>Get Presentation Template</span>
-                            </a>
+                            <ul class="space-y-3.5 text-sm font-semibold">
+                                <li class="flex items-center gap-3 bg-mdBackground p-3 rounded-2xl border border-slate-100">
+                                    <span class="w-6.5 h-6.5 rounded-lg bg-mdPrimaryContainer text-mdOnPrimaryContainer font-black text-xs flex items-center justify-center shrink-0">01</span>
+                                    <span class="text-mdOnSurface">Project Name 🏷️</span>
+                                </li>
+                                <li class="flex items-center gap-3 bg-mdBackground p-3 rounded-2xl border border-slate-100">
+                                    <span class="w-6.5 h-6.5 rounded-lg bg-mdPrimaryContainer text-mdOnPrimaryContainer font-black text-xs flex items-center justify-center shrink-0">02</span>
+                                    <span class="text-mdOnSurface">Problem Statement ❓</span>
+                                </li>
+                                <li class="flex items-center gap-3 bg-mdBackground p-3 rounded-2xl border border-slate-100">
+                                    <span class="w-6.5 h-6.5 rounded-lg bg-mdPrimaryContainer text-mdOnPrimaryContainer font-black text-xs flex items-center justify-center shrink-0">03</span>
+                                    <span class="text-mdOnSurface">Proposed Solution & Working 💡</span>
+                                </li>
+                                <li class="flex items-center gap-3 bg-mdBackground p-3 rounded-2xl border border-slate-100">
+                                    <span class="w-6.5 h-6.5 rounded-lg bg-mdPrimaryContainer text-mdOnPrimaryContainer font-black text-xs flex items-center justify-center shrink-0">04</span>
+                                    <span class="text-mdOnSurface">Required Items & Costing 🛠️</span>
+                                </li>
+                                <li class="flex items-center gap-3 bg-mdBackground p-3 rounded-2xl border border-slate-100">
+                                    <span class="w-6.5 h-6.5 rounded-lg bg-mdPrimaryContainer text-mdOnPrimaryContainer font-black text-xs flex items-center justify-center shrink-0">05</span>
+                                    <span class="text-mdOnSurface">Team Members with Class & Section 👥</span>
+                                </li>
+                            </ul>
                         </div>
+                    </div>
 
-                        <!-- Direct Help Card -->
-                        <div class="bg-mdPrimaryContainer text-[#041E49] rounded-[32px] p-6 shadow-md3-2 border border-white/40 flex flex-col justify-between">
-                            <div>
-                                <div class="flex items-center gap-2 text-mdPrimary mb-2">
-                                    <i data-lucide="party-popper" class="w-5 h-5"></i>
-                                    <h4 class="font-display font-extrabold uppercase text-xs tracking-wider">Ready to submit?</h4>
-                                </div>
-                                <p class="text-xs text-mdOnPrimaryContainer leading-relaxed mb-4 font-semibold">
-                                    The submission button is located directly at the top of this page! You can scroll up to click it anytime.
-                                </p>
+                    <!-- Download Template Card -->
+                    <div class="bg-white rounded-[32px] p-6 sm:p-8 shadow-md3-1 border-2 border-dashed border-[#D3E3FD] flex flex-col justify-between hover:shadow-md3-2 hover:border-mdPrimary transition-all duration-300">
+                        <div class="mb-6">
+                            <div class="flex items-center justify-between mb-4 pb-3 border-b border-[#E1E2EC]">
+                                <h4 class="font-display font-extrabold text-sm uppercase tracking-wider text-[#041E49] flex items-center gap-1.5">
+                                    <i data-lucide="file-down" class="w-4.5 h-4.5 text-mdPrimary"></i>
+                                    <span>Download Slide Template</span>
+                                </h4>
+                                <span class="text-xs bg-mdPrimary/10 text-mdPrimary font-extrabold px-3 py-1 rounded-full uppercase">PPTX File</span>
                             </div>
-                            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bg-mdPrimary hover:bg-blue-800 text-white rounded-full py-3.5 text-center text-xs font-black uppercase tracking-wider block shadow-md3-1 transition-all">
-                                ⬆️ Scroll to Top Submission
-                            </button>
+                            <p class="text-sm sm:text-base text-mdOnSurfaceVariant leading-relaxed font-semibold mb-4">
+                                Need help organizing your presentation? We have created a ready-to-use template with correct layouts to save you time.
+                            </p>
+                            <p class="text-xs text-slate-500 font-medium leading-relaxed">
+                                Simply click below, fill in the details about your project name, problem, solution, materials, and team, and save the file.
+                            </p>
                         </div>
+                        <a href="https://ik.imagekit.io/brightonRobotics/Minor%20Project%20Template.pptx" target="_blank" class="bg-mdPrimaryContainer hover:bg-[#B9D3FC] text-mdOnPrimaryContainer rounded-full py-4 text-center text-sm font-black uppercase tracking-wider block transition-all flex items-center justify-center gap-2 shadow-sm">
+                            <i data-lucide="download" class="w-5 h-5"></i>
+                            <span>Get Presentation Template (.PPTX)</span>
+                        </a>
                     </div>
 
                 </div>
@@ -328,22 +308,22 @@
             <div id="content-major" class="space-y-8 hidden transition-all duration-300 opacity-0 transform translate-y-4">
                 
                 <!-- Transition Principle Alert Card -->
-                <div class="bg-[#E9EEF6] border-2 border-mdPrimary/25 rounded-[32px] p-6 shadow-md3-1 relative overflow-hidden">
+                <div class="bg-[#E9EEF6] border-2 border-mdPrimary/25 rounded-[32px] p-6 sm:p-8 shadow-md3-1 relative overflow-hidden">
                     <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
                         <div class="flex items-start space-x-4">
                             <div class="p-3 bg-mdPrimary text-white rounded-2xl shadow-sm shrink-0">
                                 <i data-lucide="stars" class="w-6 h-6"></i>
                             </div>
                             <div>
-                                <h3 class="font-display text-base font-extrabold text-mdOnPrimaryContainer tracking-tight">
+                                <h3 class="font-display text-lg font-extrabold text-mdOnPrimaryContainer tracking-tight">
                                     🌟 The Golden Rule of Transition 🌟
                                 </h3>
-                                <p class="text-[#44474F] text-xs mt-1 max-w-2xl leading-relaxed font-semibold">
+                                <p class="text-mdOnSurfaceVariant text-sm mt-1.5 max-w-2xl leading-relaxed font-semibold">
                                     To unlock Major Project status, you must keep the <strong class="text-mdPrimary underline">exact same idea</strong> you submitted in your Minor softcopy slides. Your primary goal is to turn those sketches into a real, working physical machine!
                                 </p>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-2 shrink-0 bg-white px-3.5 py-1.5 rounded-full border border-[#D3E3FD] text-xs font-bold text-mdPrimary">
+                        <div class="flex items-center space-x-2 shrink-0 bg-white px-4 py-2 rounded-full border border-[#D3E3FD] text-xs font-bold text-mdPrimary">
                             <span>Idea Slide</span>
                             <i data-lucide="arrow-right-circle" class="w-4 h-4 text-mdSecondary"></i>
                             <span class="text-mdSecondary">Real Robot</span>
@@ -351,82 +331,79 @@
                     </div>
                 </div>
 
-                <!-- Overview & Guidelines -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                    
-                    <div class="lg:col-span-12 bg-white rounded-[32px] p-6 sm:p-8 shadow-md3-1 border border-slate-100 flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center space-x-2 text-mdSecondary mb-4">
-                                <i data-lucide="toy-brick" class="w-5 h-5"></i>
-                                <span class="text-xs uppercase tracking-wider font-extrabold">Part 2: Real-World Prototyping</span>
-                            </div>
-                            
-                            <h3 class="font-display text-xl sm:text-2xl font-extrabold text-mdOnSurface mb-3">
-                                Major Projects <span class="text-mdSecondary font-semibold">(20 Marks)</span>
-                            </h3>
-                            
-                            <p class="text-sm text-mdOnSurfaceVariant leading-relaxed mb-6 font-semibold">
-                                This is where the real fun begins! You will take the exact list of sensors and costing parameters outlined in your Minor proposal to construct your physical system. Solder modules, configure microcontroller code loops, calibrate variables, and wrap up your components neatly.
-                            </p>
-                            
-                            <!-- MD3 Grid Parameters -->
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-mdBackground p-4 rounded-2xl border border-[#E1E2EC] mb-6 font-semibold">
-                                <div class="p-2">
-                                    <span class="block text-xs uppercase text-mdSecondary font-extrabold mb-1">🎮 Teammates:</span>
-                                    <span class="text-xs text-[#44474F]">Work with the exact same partners listed in your initial Minor softcopy submission.</span>
-                                </div>
-                                <div class="p-2 border-t md:border-t-0 md:border-l border-[#E1E2EC]">
-                                    <span class="block text-xs uppercase text-mdSecondary font-extrabold mb-1">📦 Lab Stock Desk:</span>
-                                    <span class="text-xs text-[#44474F]">Reference your costing sheet to check out active microcontrollers and sensors from coordinates.</span>
-                                </div>
-                                <div class="p-2 border-t md:border-t-0 md:border-l border-[#E1E2EC]">
-                                    <span class="block text-xs uppercase text-mdSecondary font-extrabold mb-1">🔥 Final Deliverable:</span>
-                                    <span class="text-xs text-[#44474F]">Present a completely functioning, cleanly integrated physical prototype with live diagnostics.</span>
-                                </div>
-                            </div>
+                <!-- Overview & Guidelines Card (Highly Readable Full-Width) -->
+                <div class="bg-white rounded-[32px] p-6 sm:p-8 shadow-md3-1 border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-2 text-mdSecondary mb-4">
+                            <i data-lucide="toy-brick" class="w-5 h-5"></i>
+                            <span class="text-xs uppercase tracking-wider font-extrabold">Part 2: Real-World Prototyping</span>
                         </div>
-
-                        <!-- Score Card (Rubric) -->
-                        <div class="border-t border-[#E1E2EC] pt-6">
-                            <h4 class="text-xs uppercase tracking-wider font-bold text-mdOnSurfaceVariant mb-4 flex items-center gap-1.5">
-                                <i data-lucide="award" class="w-4 h-4 text-mdSecondary"></i>
-                                <span>🎒 Score Card Weightage</span>
-                            </h4>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-                                <div class="bg-mdBackground p-3 rounded-2xl border border-slate-100">
-                                    <span class="block text-lg font-black text-mdSecondary">4M</span>
-                                    <span class="text-[9px] text-[#44474F] uppercase font-bold tracking-tight">Problem Depth</span>
-                                </div>
-                                <div class="bg-mdBackground p-3 rounded-2xl border border-slate-100">
-                                    <span class="block text-lg font-black text-mdSecondary">6M</span>
-                                    <span class="text-[9px] text-[#44474F] uppercase font-bold tracking-tight">Hardware Build</span>
-                                </div>
-                                <div class="bg-mdBackground p-3 rounded-2xl border border-slate-100">
-                                    <span class="block text-lg font-black text-mdSecondary">4M</span>
-                                    <span class="text-[9px] text-[#44474F] uppercase font-bold tracking-tight">Calibrations</span>
-                                </div>
-                                <div class="bg-mdBackground p-3 rounded-2xl border border-slate-100">
-                                    <span class="block text-lg font-black text-mdSecondary">6M</span>
-                                    <span class="text-[9px] text-[#44474F] uppercase font-bold tracking-tight">Live Practical Demo</span>
-                                </div>
+                        
+                        <h3 class="font-display text-xl sm:text-3xl font-extrabold text-mdOnSurface mb-4">
+                            Major Projects <span class="text-mdSecondary font-semibold">(20 Marks Total)</span>
+                        </h3>
+                        
+                        <p class="text-base text-mdOnSurfaceVariant leading-relaxed mb-6 font-semibold">
+                            This is where the real fun begins! You will take the exact list of sensors and costing parameters outlined in your Minor proposal to construct your physical system. Solder modules, configure microcontroller code loops, calibrate variables, and wrap up your components neatly.
+                        </p>
+                        
+                        <!-- MD3 Grid Parameters -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 bg-mdBackground p-6 rounded-2xl border border-[#E1E2EC] mb-6 font-semibold text-sm">
+                            <div class="p-2">
+                                <span class="block text-xs uppercase text-mdSecondary font-extrabold mb-1">🎮 Teammates:</span>
+                                <span class="text-xs text-[#44474F] leading-relaxed">Work with the exact same partners listed in your initial Minor softcopy submission.</span>
+                            </div>
+                            <div class="p-2 border-t md:border-t-0 md:border-l border-[#E1E2EC]">
+                                <span class="block text-xs uppercase text-mdSecondary font-extrabold mb-1">📦 Lab Stock Desk:</span>
+                                <span class="text-xs text-[#44474F] leading-relaxed">Reference your costing sheet to check out active microcontrollers and sensors from coordinates.</span>
+                            </div>
+                            <div class="p-2 border-t md:border-t-0 md:border-l border-[#E1E2EC]">
+                                <span class="block text-xs uppercase text-mdSecondary font-extrabold mb-1">🔥 Final Deliverable:</span>
+                                <span class="text-xs text-[#44474F] leading-relaxed">Present a completely functioning, cleanly integrated physical prototype with live diagnostics.</span>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Score Card (Rubric) -->
+                    <div class="border-t border-[#E1E2EC] pt-6">
+                        <h4 class="text-sm uppercase tracking-wider font-bold text-mdOnSurfaceVariant mb-4 flex items-center gap-1.5">
+                            <i data-lucide="award" class="w-4 h-4 text-mdSecondary"></i>
+                            <span>🎒 Score Card Weightage</span>
+                        </h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                            <div class="bg-mdBackground p-3 rounded-2xl border border-slate-100">
+                                <span class="block text-lg font-black text-mdSecondary">4M</span>
+                                <span class="text-[9px] text-[#44474F] uppercase font-bold tracking-tight">Problem Depth</span>
+                            </div>
+                            <div class="bg-mdBackground p-3 rounded-2xl border border-slate-100">
+                                <span class="block text-lg font-black text-mdSecondary">6M</span>
+                                <span class="text-[9px] text-[#44474F] uppercase font-bold tracking-tight">Hardware Build</span>
+                                </div>
+                            <div class="bg-mdBackground p-3 rounded-2xl border border-slate-100">
+                                <span class="block text-lg font-black text-mdSecondary">4M</span>
+                                <span class="text-[9px] text-[#44474F] uppercase font-bold tracking-tight">Calibrations</span>
+                            </div>
+                            <div class="bg-mdBackground p-3 rounded-2xl border border-slate-100">
+                                <span class="block text-lg font-black text-mdSecondary">6M</span>
+                                <span class="text-[9px] text-[#44474F] uppercase font-bold tracking-tight">Live Practical Demo</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
 
         <!-- Student Progress Steps & Guidelines (Playful Cards) -->
-        <div class="mt-20 border-t border-[#E1E2EC] pt-16">
+        <div class="mt-16 border-t border-[#E1E2EC] pt-12">
             <h3 class="font-display text-xl sm:text-2xl font-extrabold text-[#041E49] text-center mb-3">
                 Your 4-Step Lab Journey 🚀
             </h3>
-            <p class="text-mdOnSurfaceVariant text-xs sm:text-sm text-center max-w-xl mx-auto mb-12 font-semibold">
+            <p class="text-mdOnSurfaceVariant text-xs sm:text-sm text-center max-w-xl mx-auto mb-10 font-semibold">
                 Follow these clean checkpoints to complete your Brighton ATL Lab milestones with ease!
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Step 1 -->
                 <div class="bg-white rounded-[24px] p-6 shadow-md3-1 hover:shadow-md3-2 transition-all relative">
                     <span class="absolute -top-3 left-6 text-[11px] font-black text-white bg-mdPrimary px-3 py-1 rounded-full uppercase tracking-wider">Step 1</span>
@@ -469,47 +446,47 @@
             </div>
         </div>
 
-        <!-- Interactive FAQ & Checklist Section -->
-        <div class="mt-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Interactive FAQ & Checklist Section (Highly Readable 2-Column Desktop, Stacked Mobile) -->
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             
             <!-- Left: Playful Checklist -->
-            <div class="lg:col-span-5 bg-white rounded-[32px] p-6 sm:p-8 shadow-md3-1 border border-slate-100">
-                <h3 class="text-base font-display font-extrabold uppercase text-mdOnSurface mb-2 flex items-center space-x-2 tracking-wide">
+            <div class="md:col-span-6 lg:col-span-5 bg-white rounded-[32px] p-6 sm:p-8 shadow-md3-1 border border-slate-100">
+                <h3 class="text-base font-display font-extrabold uppercase text-mdOnSurface mb-3 flex items-center space-x-2 tracking-wide">
                     <i data-lucide="clipboard-list" class="w-5 h-5 text-mdPrimary"></i>
                     <span>Tinkering Checklist</span>
                 </h3>
-                <p class="text-xs text-mdOnSurfaceVariant mb-6 font-semibold">Keep track of your project journey progress parameters:</p>
+                <p class="text-xs sm:text-sm text-mdOnSurfaceVariant mb-6 font-semibold">Keep track of your project journey progress parameters:</p>
                 
-                <div class="space-y-3.5" id="checklist-container">
+                <div class="space-y-4" id="checklist-container">
                     <!-- Checklist Item 1 -->
-                    <label class="flex items-start space-x-3.5 cursor-pointer group p-3 rounded-2xl border border-[#E1E2EC] hover:border-mdPrimary transition-all bg-mdBackground/50">
+                    <label class="flex items-start space-x-3.5 cursor-pointer group p-3.5 rounded-2xl border border-[#E1E2EC] hover:border-mdPrimary transition-all bg-[#F8F9FA]">
                         <input type="checkbox" onchange="updateChecklistProgress()" class="mt-1 accent-mdPrimary rounded-md w-4 h-4 cursor-pointer">
                         <div>
-                            <span class="text-xs font-bold text-mdOnSurface group-hover:text-mdPrimary transition-colors block uppercase">Idea Slides Prepared</span>
-                            <p class="text-[10px] text-slate-500 font-semibold">Your file incorporates all five required blueprint features.</p>
+                            <span class="text-xs sm:text-sm font-bold text-mdOnSurface group-hover:text-mdPrimary transition-colors block uppercase">Idea Slides Prepared</span>
+                            <p class="text-[10px] sm:text-xs text-slate-500 font-semibold mt-0.5">Your file incorporates all five required blueprint features.</p>
                         </div>
                     </label>
 
                     <!-- Checklist Item 2 -->
-                    <label class="flex items-start space-x-3.5 cursor-pointer group p-3 rounded-2xl border border-[#E1E2EC] hover:border-mdPrimary transition-all bg-mdBackground/50">
+                    <label class="flex items-start space-x-3.5 cursor-pointer group p-3.5 rounded-2xl border border-[#E1E2EC] hover:border-mdPrimary transition-all bg-[#F8F9FA]">
                         <input type="checkbox" onchange="updateChecklistProgress()" class="mt-1 accent-mdPrimary rounded-md w-4 h-4 cursor-pointer">
                         <div>
-                            <span class="text-xs font-bold text-mdOnSurface group-hover:text-mdPrimary transition-colors block uppercase">Class & Section Tagged</span>
-                            <p class="text-[10px] text-slate-500 font-semibold">Verified all teammate registrations are cleanly labelled.</p>
+                            <span class="text-xs sm:text-sm font-bold text-mdOnSurface group-hover:text-mdPrimary transition-colors block uppercase">Class & Section Tagged</span>
+                            <p class="text-[10px] sm:text-xs text-slate-500 font-semibold mt-0.5">Verified all teammate registrations are cleanly labelled.</p>
                         </div>
                     </label>
 
                     <!-- Checklist Item 3 -->
-                    <label class="flex items-start space-x-3.5 cursor-pointer group p-3 rounded-2xl border border-[#E1E2EC] hover:border-mdPrimary transition-all bg-mdBackground/50">
+                    <label class="flex items-start space-x-3.5 cursor-pointer group p-3.5 rounded-2xl border border-[#E1E2EC] hover:border-mdPrimary transition-all bg-[#F8F9FA]">
                         <input type="checkbox" onchange="updateChecklistProgress()" class="mt-1 accent-mdPrimary rounded-md w-4 h-4 cursor-pointer">
                         <div>
-                            <span class="text-xs font-bold text-mdOnSurface group-hover:text-mdPrimary transition-colors block uppercase">Slides Shared / Uploaded</span>
-                            <p class="text-[10px] text-slate-500 font-semibold">File uploaded inside Google Form or handed to your robotics teacher.</p>
+                            <span class="text-xs sm:text-sm font-bold text-mdOnSurface group-hover:text-mdPrimary transition-colors block uppercase">Slides Shared / Uploaded</span>
+                            <p class="text-[10px] sm:text-xs text-slate-500 font-semibold mt-0.5">File uploaded inside Google Form or handed to your robotics teacher.</p>
                         </div>
                     </label>
 
                     <!-- Checklist Item 4 -->
-                    <label class="flex items-start space-x-3.5 cursor-pointer group p-3 rounded-2xl border border-[#E1E2EC] hover:border-mdPrimary transition-all bg-mdBackground/50">
+                    <label class="flex items-start space-x-3.5 cursor-pointer group p-3 rounded-2xl border border-[#E1E2EC] hover:border-[#FF4A5A] transition-all bg-[#F8F9FA]">
                         <input type="checkbox" onchange="updateChecklistProgress()" class="mt-1 accent-mdPrimary rounded-md w-4 h-4 cursor-pointer">
                         <div>
                             <span class="text-xs font-bold text-mdOnSurface group-hover:text-mdPrimary transition-colors block uppercase">Same-Idea Transition Plan</span>
@@ -531,7 +508,7 @@
             </div>
 
             <!-- Right: Playful Accordion FAQs -->
-            <div class="lg:col-span-7 space-y-4">
+            <div class="md:col-span-6 lg:col-span-7 space-y-4">
                 <h3 class="text-base font-display font-extrabold uppercase text-mdOnSurface mb-6 flex items-center space-x-2 tracking-wide">
                     <i data-lucide="help-circle" class="w-5 h-5 text-mdSecondary"></i>
                     <span>Tinkering FAQs</span>
@@ -543,7 +520,7 @@
                         <span>Do we need to buy or build physical hardware for Minor Projects?</span>
                         <i id="faq-icon-1" data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 text-mdSecondary"></i>
                     </button>
-                    <div id="faq-content-1" class="hidden px-6 pb-5 text-xs text-mdOnSurfaceVariant leading-relaxed border-t border-slate-100 pt-3.5 font-semibold">
+                    <div id="faq-content-1" class="hidden px-6 pb-5 text-xs sm:text-sm text-mdOnSurfaceVariant leading-relaxed border-t border-slate-100 pt-3.5 font-semibold">
                         Nope! Minor projects are strictly <strong class="text-mdOnSurface">softcopy-only submissions</strong> (PPT, PDF, or DOCX formats). You do not need to buy parts, design real boards, or wire components for this stage.
                     </div>
                 </div>
@@ -554,19 +531,19 @@
                         <span>Can we change our project idea from minor to major phase?</span>
                         <i id="faq-icon-2" data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 text-mdSecondary"></i>
                     </button>
-                    <div id="faq-content-2" class="hidden px-6 pb-5 text-xs text-mdOnSurfaceVariant leading-relaxed border-t border-slate-100 pt-3.5 font-semibold">
+                    <div id="faq-content-2" class="hidden px-6 pb-5 text-xs sm:text-sm text-mdOnSurfaceVariant leading-relaxed border-t border-slate-100 pt-3.5 font-semibold">
                         No, school guidelines state you must <strong class="text-mdOnSurface">transition with the exact same idea</strong>. Your Major Project is built from the conceptual slide blueprint you uploaded during your Minor project.
                     </div>
                 </div>
 
                 <!-- FAQ Item 3 -->
-                <div class="bg-white rounded-3xl border border-[#E1E2EC] overflow-hidden shadow-sm hover:shadow-md3-1 transition-all">
+                <div class="bg-white rounded-3xl border border-[#E1E2EC] overflow-hidden shadow-sm hover:shadow-sm transition-all">
                     <button onclick="toggleFaq(3)" class="w-full px-6 py-4 text-left flex items-center justify-between text-mdOnSurface hover:text-mdPrimary font-extrabold text-xs sm:text-sm uppercase tracking-wide focus:outline-none bg-[#F0F4F9]/30">
                         <span>What specific parameters must our Idea Report contain?</span>
                         <i id="faq-icon-3" data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 text-mdSecondary"></i>
                     </button>
-                    <div id="faq-content-3" class="hidden px-6 pb-5 text-xs text-mdOnSurfaceVariant leading-relaxed border-t border-slate-100 pt-3.5 font-semibold">
-                        Your file must include: <strong class="text-mdOnSurface">Project Name, Problem Statement, Solution, Working Principle, Required Items & Costing</strong>, and the <strong class="text-white bg-slate-900 px-1 py-0.5 rounded">Team Members' Names along with proper Class & Section details</strong>.
+                    <div id="faq-content-3" class="hidden px-6 pb-5 text-xs sm:text-sm text-mdOnSurfaceVariant leading-relaxed border-t border-slate-100 pt-3.5 font-semibold">
+                        Your file must include: <strong class="text-mdOnSurface">Project Name, Problem Statement, Solution, Working Principle, Required Items & Costing</strong>, and the <strong class="text-mdPrimary">Team Members' Names along with proper Class & Section details</strong>.
                     </div>
                 </div>
             </div>
@@ -603,18 +580,41 @@
         // Initialize Lucide Icons
         lucide.createIcons();
 
+        // Target Deadlines
+        const minorDeadline = new Date("September 4, 2026 23:59:59").getTime();
+        const majorDeadline = new Date("January 9, 2027 23:59:59").getTime();
+        
+        let currentTargetDate = minorDeadline;
+        let activeTab = 'minor';
+
         // 1. Tab Switcher
         function switchTab(tab) {
+            activeTab = tab;
             const btnMinor = document.getElementById('tab-btn-minor');
             const btnMajor = document.getElementById('tab-btn-major');
             const contentMinor = document.getElementById('content-minor');
             const contentMajor = document.getElementById('content-major');
+            
+            const countdownTitle = document.getElementById('countdown-title');
+            const badgeDeadlineText = document.getElementById('badge-deadline-text');
+            const heroBanner = document.getElementById('hero-banner');
+            const heroDeadlineBadge = document.getElementById('hero-deadline-badge');
 
             if (tab === 'minor') {
-                // Update navigation tab designs (Material Tonal Tab Selector style)
-                btnMinor.className = "flex-1 sm:flex-initial py-2 px-5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center space-x-2 bg-mdPrimary text-white shadow-md3-1";
-                btnMajor.className = "flex-1 sm:flex-initial py-2 px-5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center space-x-2 text-mdOnSurfaceVariant hover:bg-[#D3E3FD]/50";
+                currentTargetDate = minorDeadline;
+
+                // Update navigation tab designs
+                btnMinor.className = "flex-1 sm:flex-initial py-2.5 px-5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center space-x-2 bg-mdPrimary text-white shadow-md3-1";
+                btnMajor.className = "flex-1 sm:flex-initial py-2.5 px-5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center space-x-2 text-mdOnSurfaceVariant hover:bg-[#D3E3FD]/50";
                 
+                // Update Hero Details
+                countdownTitle.innerText = "⏳ Minor Submission Countdown";
+                badgeDeadlineText.innerText = "Minor Deadline: 4th Sept 2026";
+                
+                // Swap Theme Tonalities on Hero Banner to Primary Blue
+                heroBanner.className = "bg-mdPrimaryContainer text-mdOnPrimaryContainer rounded-[32px] p-6 sm:p-10 shadow-md3-1 mb-10 relative overflow-hidden border border-white/20 transition-all duration-300";
+                heroDeadlineBadge.className = "inline-flex items-center gap-2.5 px-6 py-2 rounded-2xl text-sm sm:text-base font-black bg-mdSecondary text-white shadow-md3-2 border border-white/40 animate-pulse";
+
                 // Show/Hide page views
                 contentMinor.classList.remove('hidden');
                 setTimeout(() => {
@@ -629,10 +629,20 @@
                 }, 150);
 
             } else {
+                currentTargetDate = majorDeadline;
+
                 // Update navigation tab designs
-                btnMajor.className = "flex-1 sm:flex-initial py-2 px-5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center space-x-2 bg-mdPrimary text-white shadow-md3-1";
-                btnMinor.className = "flex-1 sm:flex-initial py-2 px-5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center space-x-2 text-mdOnSurfaceVariant hover:bg-[#D3E3FD]/50";
+                btnMajor.className = "flex-1 sm:flex-initial py-2.5 px-5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center space-x-2 bg-mdPrimary text-white shadow-md3-1";
+                btnMinor.className = "flex-1 sm:flex-initial py-2.5 px-5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-center space-x-2 text-mdOnSurfaceVariant hover:bg-[#D3E3FD]/50";
                 
+                // Update Hero Details
+                countdownTitle.innerText = "🚀 Major Submission Countdown";
+                badgeDeadlineText.innerText = "Major Deadline: 9th Jan 2027";
+
+                // Swap Theme Tonalities on Hero Banner to Secondary Red
+                heroBanner.className = "bg-mdSecondaryContainer text-mdOnSecondaryContainer rounded-[32px] p-6 sm:p-10 shadow-md3-1 mb-10 relative overflow-hidden border border-white/20 transition-all duration-300";
+                heroDeadlineBadge.className = "inline-flex items-center gap-2.5 px-6 py-2 rounded-2xl text-sm sm:text-base font-black bg-mdPrimary text-white shadow-md3-2 border border-white/40 animate-pulse";
+
                 // Show/Hide page views
                 contentMajor.classList.remove('hidden');
                 setTimeout(() => {
@@ -646,14 +656,15 @@
                     contentMinor.classList.add('hidden');
                 }, 150);
             }
+            
+            // Instantly recalculate the countdown timer variables
+            updateCountdown();
         }
 
-        // 2. Countdown Timer Logic (September 4th, 2026)
-        const targetDate = new Date("September 4, 2026 23:59:59").getTime();
-
+        // 2. Countdown Timer Logic
         function updateCountdown() {
             const now = new Date().getTime();
-            const difference = targetDate - now;
+            const difference = currentTargetDate - now;
 
             if (difference < 0) {
                 document.getElementById("days").innerText = "00";
@@ -672,6 +683,14 @@
             document.getElementById("hours").innerText = String(hours).padStart(2, '0');
             document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
             document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+            
+            // Style tweak: make seconds block red on active countdowns
+            const secondsLabel = document.getElementById("seconds");
+            if (activeTab === 'minor') {
+                secondsLabel.className = "block text-xl sm:text-2xl font-black text-mdSecondary";
+            } else {
+                secondsLabel.className = "block text-xl sm:text-2xl font-black text-mdPrimary";
+            }
         }
 
         updateCountdown();
