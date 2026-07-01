@@ -61,7 +61,7 @@
     <!-- Material Design 3 Header / Top App Bar (Sticky & Responsive) -->
     <header class="bg-mdSurface sticky top-0 z-50 shadow-md3-1 transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between py-3 md:h-20 gap-4">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between py-3 lg:h-20 gap-4">
                 
                 <!-- Left Title Section -->
                 <div class="flex items-center space-x-3.5">
@@ -79,8 +79,8 @@
                     </div>
                 </div>
 
-                <!-- Right Interaction Controls (Unified Tab Control + Badge) -->
-                <div class="flex flex-wrap items-center gap-3 w-full md:w-auto justify-between md:justify-end">
+                <!-- Right Interaction Controls (Unified Tab Control + Dynamic Submit Button) -->
+                <div class="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
                     
                     <!-- MD3 Segmented / Sliding Tab Controller -->
                     <div class="bg-[#E9EEF6] p-1.5 rounded-full flex items-center relative w-full sm:w-auto">
@@ -94,11 +94,11 @@
                         </button>
                     </div>
 
-                    <!-- Session Tag (Hidden on small mobile, beautiful on tablet+) -->
-                    <div class="hidden sm:inline-flex items-center px-4 py-2 rounded-full text-xs font-bold bg-[#E9EEF6] text-mdPrimary border border-[#D3E3FD]">
-                        <span class="w-2 h-2 rounded-full bg-mdSecondary mr-2 animate-pulse"></span>
-                        Session 2026
-                    </div>
+                    <!-- NEW: Prominent Submit Button brought near Header -->
+                    <a href="https://forms.gle/HEARuai8QR7AovJc6" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-wider bg-mdSecondary hover:bg-red-600 text-white shadow-md3-1 hover:shadow-md3-2 transition-all">
+                        <i data-lucide="upload-cloud" class="w-4 h-4"></i>
+                        <span>Submit Minor Project</span>
+                    </a>
                 </div>
 
             </div>
@@ -195,7 +195,7 @@
                             </p>
 
                             <!-- Submission Steps -->
-                            <div class="bg-mdBackground rounded-2xl p-5 border border-[#E1E2EC] mb-6">
+                            <div class="bg-mdBackground rounded-2xl p-5 border border-[#E1E2EC] mb-2">
                                 <h4 class="text-xs uppercase tracking-widest font-black text-mdPrimary mb-4 flex items-center gap-2">
                                     <span class="w-2 h-2 rounded-full bg-mdSecondary inline-block"></span> Submission Guide:
                                 </h4>
@@ -206,7 +206,7 @@
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <div class="bg-mdPrimary text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">2</div>
-                                        <span>Fill up the easy submission Google Form linked on the right.</span>
+                                        <span>Fill up the easy submission Google Form linked directly in the header menu.</span>
                                     </li>
                                     <li class="flex items-start gap-3">
                                         <div class="bg-mdPrimary text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">3</div>
@@ -243,10 +243,10 @@
                         </div>
                     </div>
 
-                    <!-- Right: Slide blueprint & Submission Portal -->
+                    <!-- Right: Slide blueprint & Interactive Form Call -->
                     <div class="lg:col-span-5 flex flex-col gap-6">
                         
-                        <!-- Slide Details Card -->
+                        <!-- Idea File Blueprint Card -->
                         <div class="bg-white rounded-[32px] p-6 shadow-md3-1 border border-slate-100 flex-1 flex flex-col justify-between">
                             <div>
                                 <div class="flex items-center justify-between mb-4 pb-2 border-b border-[#E1E2EC]">
@@ -254,9 +254,9 @@
                                         <i data-lucide="layers" class="w-4 h-4 text-mdPrimary"></i>
                                         <span>Slide Blueprint</span>
                                     </h3>
-                                    <span class="text-[9px] bg-mdSecondary/10 text-mdSecondary border border-mdSecondary/25 font-bold px-2.5 py-0.5 rounded-full">REQUIRED</span>
+                                    <span class="text-[9px] bg-red-500 text-white font-extrabold px-2 py-0.5 rounded-full border border-red-600">MANDATORY</span>
                                 </div>
-                                <p class="text-[11px] text-[#44474F] mb-4 font-semibold">Verify your file highlights these five key segments:</p>
+                                <p class="text-[11px] text-[#44474F] mb-4 font-semibold">Ensure your softcopy (PPT / PDF / DOCX) contains these specific parameters:</p>
 
                                 <ul class="space-y-2.5 text-xs font-semibold">
                                     <li class="flex items-center gap-3 bg-mdBackground p-2.5 rounded-xl border border-slate-100">
@@ -283,20 +283,20 @@
                             </div>
                         </div>
 
-                        <!-- Submit Box -->
-                        <div class="bg-mdSecondaryContainer text-mdOnSecondaryContainer rounded-[32px] p-6 shadow-md3-2 border border-white/40 flex flex-col justify-between">
+                        <!-- Direct Help Card -->
+                        <div class="bg-mdPrimaryContainer text-[#041E49] rounded-[32px] p-6 shadow-md3-2 border border-white/40 flex flex-col justify-between">
                             <div>
-                                <div class="flex items-center gap-2 text-mdSecondary mb-2">
-                                    <i data-lucide="upload-cloud" class="w-5 h-5"></i>
+                                <div class="flex items-center gap-2 text-mdPrimary mb-2">
+                                    <i data-lucide="party-popper" class="w-5 h-5"></i>
                                     <h4 class="font-display font-extrabold uppercase text-xs tracking-wider">Ready to submit?</h4>
                                 </div>
-                                <p class="text-xs text-[#5C1A14] leading-relaxed mb-4 font-semibold">
-                                    Upload your digital files directly via our designated student portal below:
+                                <p class="text-xs text-mdOnPrimaryContainer leading-relaxed mb-4 font-semibold">
+                                    The submission button is located directly at the top of this page! You can scroll up to click it anytime.
                                 </p>
                             </div>
-                            <a href="https://forms.gle/HEARuai8QR7AovJc6" target="_blank" class="bg-mdSecondary hover:bg-red-600 text-white rounded-full py-3.5 text-center text-xs font-black uppercase tracking-wider block shadow-md3-1 hover:shadow-md3-2 transition-all">
-                                🚀 Click to Submit Project File!
-                            </a>
+                            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bg-mdPrimary hover:bg-blue-800 text-white rounded-full py-3.5 text-center text-xs font-black uppercase tracking-wider block shadow-md3-1 transition-all">
+                                ⬆️ Scroll to Top Submission
+                            </button>
                         </div>
                     </div>
 
@@ -530,7 +530,7 @@
 
                 <!-- FAQ Item 2 -->
                 <div class="bg-white rounded-3xl border border-[#E1E2EC] overflow-hidden shadow-sm hover:shadow-md3-1 transition-all">
-                    <button onclick="toggleFaq(2)" class="w-full px-6 py-4 text-left flex items-center justify-between text-mdOnSurface hover:text-mdPrimary font-extrabold text-xs sm:text-sm uppercase tracking-wide focus:outline-none bg-[#F0F4F9]/30">
+                    <button onclick="toggleFaq(2)" class="w-full px-6 py-4 text-left flex items-center justify-between text-mdOnSurface hover:text-mdPrimary font-extrabold text-xs sm:text-sm uppercase tracking-wide focus:outline-none bg--[#F0F4F9]/30">
                         <span>Can we change our project idea from minor to major phase?</span>
                         <i id="faq-icon-2" data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 text-mdSecondary"></i>
                     </button>
@@ -546,7 +546,7 @@
                         <i id="faq-icon-3" data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300 text-mdSecondary"></i>
                     </button>
                     <div id="faq-content-3" class="hidden px-6 pb-5 text-xs text-mdOnSurfaceVariant leading-relaxed border-t border-slate-100 pt-3.5 font-semibold">
-                        Your file must include: <strong class="text-mdOnSurface">Project Name, Problem Statement, Solution, Working Principle, Required Items & Costing</strong>, and the <strong class="text-mdOnSurface">Team Members' Names along with proper Class & Section details</strong>.
+                        Your file must include: <strong class="text-mdOnSurface">Project Name, Problem Statement, Solution, Working Principle, Required Items & Costing</strong>, and the <strong class="text-white bg-slate-900 px-1 py-0.5 rounded">Team Members' Names along with proper Class & Section details</strong>.
                     </div>
                 </div>
             </div>
