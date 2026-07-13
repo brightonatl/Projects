@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brighton Project Portal - ATL Student Dashboard</title>
     
-    <!-- Tailwind CSS -->
+    <!-- Beautiful Inline SVG Favicon (Gamepad inside Material Primary Blue Rounded Square) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230B57D0'/%3E%3Csvg x='20' y='20' width='60' height='60' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='6' y1='12' x2='10' y2='12'/%3E%3Cline x1='8' y1='10' x2='8' y2='14'/%3E%3Cline x1='15' y1='13' x2='15.01' y2='13'/%3E%3Cline x1='18' y1='11' x2='18.01' y2='11'/%3E%3Crect x='2' y='6' width='20' height='12' rx='2'/%3E%3C/svg%3E%3C/svg%3E">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,7 +39,6 @@
                     boxShadow: {
                         'md3-1': '0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)',
                         'md3-2': '0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)',
-                        'md3-3': '0px 1px 3px 0px rgba(0, 0, 0, 0.3), 0px 4px 8px 3px rgba(0, 0, 0, 0.15)'
                     }
                 }
             }
@@ -105,6 +106,12 @@
                     <p id="hero-description" class="text-sm sm:text-base text-mdOnSurfaceVariant font-medium leading-relaxed">
                         Welcome to your official school ATL Tinkering Lab repository portal! Explore guidelines, track milestones, and submit your entries. We are looking forward to seeing your amazing inventions come to life!
                     </p>
+                    
+                    <div class="mt-6 flex flex-wrap gap-4">
+                        <a href="https://atlbrighton.netlify.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-bold bg-white text-[#041E49] border border-white/40 shadow-sm hover:shadow-md3-1 hover:-translate-y-0.5 transition-all w-max">
+                            <i data-lucide="globe" class="w-4.5 h-4.5 text-mdPrimary"></i> Visit Main ATL Website
+                        </a>
+                    </div>
                 </div>
 
                 <div class="bg-white rounded-3xl p-6 shadow-md3-2 border border-[#E1E2EC] min-w-[280px] lg:min-w-[320px]">
@@ -404,6 +411,9 @@
                 <p class="text-xs text-[#44474F] max-w-sm font-semibold">Supporting creative thinking, electronic logic assembly, and systems calibration structures in school labs.</p>
             </div>
             <div class="flex items-center space-x-4">
+                <a href="https://atlbrighton.netlify.app" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 border border-[#E1E2EC] bg-mdBackground text-[#041E49] text-xs font-bold uppercase tracking-wider rounded-2xl hover:bg-[#D3E3FD]/50 transition-all shadow-sm flex items-center gap-2">
+                    <i data-lucide="globe" class="w-4 h-4 text-mdPrimary"></i> Main Site
+                </a>
                 <a href="https://github.com" target="_blank" class="p-3 border border-[#E1E2EC] bg-mdBackground text-mdPrimary rounded-2xl hover:bg-[#D3E3FD]/50 transition-all shadow-sm"><i data-lucide="github" class="w-5 h-5"></i></a>
             </div>
         </div>
@@ -412,15 +422,15 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Interactive Popup Widget (MD3 Adapted) -->
+    <!-- WhatsApp Floating Interactive Popup Widget (Glass-morphism Style) -->
     <div id="whatsapp-popup" class="fixed bottom-6 right-6 z-50 max-w-sm w-[calc(100%-3rem)] sm:w-80 transform translate-y-32 opacity-0 transition-all duration-500 ease-out pointer-events-none">
-        <div class="bg-white/95 backdrop-blur-md p-5 rounded-3xl border border-slate-200 border-l-4 border-l-green-500 shadow-md3-3 relative">
+        <div class="p-5 rounded-2xl border border-slate-200 border-l-4 border-l-green-500 bg-white/80 backdrop-blur-xl shadow-2xl relative">
             <button onclick="closeWhatsAppPopup()" class="absolute top-3 right-3 p-1.5 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors" aria-label="Close Popup">
                 <i data-lucide="x" class="w-4 h-4"></i>
             </button>
             <div class="flex items-start gap-3 mt-1">
                 <div class="relative shrink-0">
-                    <div class="w-11 h-11 rounded-full bg-green-50 text-green-500 flex items-center justify-center border border-green-200 shadow-sm">
+                    <div class="w-11 h-11 rounded-full bg-green-50 text-green-600 flex items-center justify-center border border-green-200 shadow-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 1.905 6.467L.18 23.834l5.518-1.446A11.95 11.95 0 0 0 11.944 24 12 12 0 0 0 24 12 12 12 0 0 0 11.944 0zM12 21.9A9.95 9.95 0 0 1 6.8 20.4l-.36-.21-3.66.96.98-3.56-.23-.37A9.9 9.9 0 0 1 2.1 12a9.9 9.9 0 0 1 9.9-9.9 9.9 9.9 0 0 1 9.9 9.9 9.9 9.9 0 0 1-9.9 9.9zm5.4-7.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3 0-.46.15-.61.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.3-1.05 1.02-1.05 2.5s1.07 2.9 1.22 3.1c.15.2 2.12 3.23 5.12 4.53 2.12.92 2.87 1 3.92.83 1.17-.18 2.37-.97 2.7-1.9.32-.93.32-1.73.22-1.9-.1-.17-.37-.27-.67-.42z"/></svg>
                     </div>
                     <span class="absolute bottom-0 right-0 block h-3 w-3 rounded-full ring-2 ring-white bg-green-400">
@@ -434,7 +444,7 @@
             </div>
             <div class="mt-4 flex justify-end gap-2 text-xs">
                 <button onclick="closeWhatsAppPopup()" class="px-3 py-2 rounded-xl text-slate-500 hover:bg-slate-100 transition-colors font-bold">Later</button>
-                <a href="https://whatsapp.com/channel/0029VbB0SO9Jpe8Z6wFijl2t" target="_blank" rel="noopener noreferrer" onclick="closeWhatsAppPopup()" class="px-4 py-2 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold flex items-center gap-1.5 shadow-sm transition-all hover:-translate-y-0.5">
+                <a href="https://whatsapp.com/channel/0029VbB0SO9Jpe8Z6wFijl2t" target="_blank" rel="noopener noreferrer" onclick="closeWhatsAppPopup()" class="px-4 py-2 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold flex items-center gap-1.5 shadow-md shadow-green-600/20 transition-all hover:-translate-y-0.5">
                     Join Channel <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                 </a>
             </div>
@@ -546,6 +556,7 @@
             }
         }
 
+        // Slide in WhatsApp popup after 3 seconds
         setTimeout(showWhatsAppPopup, 3000);
     </script>
 </body>
